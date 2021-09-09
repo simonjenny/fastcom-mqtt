@@ -1,0 +1,26 @@
+#!/bin/bash
+while true
+do
+	touch /tmp/fastlog
+	
+	echo "Running Bandwith test..."
+    
+	/usr/src/app/node_modules/.bin/fast --upload --single-line | tail -n 1 > /tmp/fastlog
+	
+	echo "Bandwith test finished."
+	
+	cat /tmp/fastlog
+
+	echo "Sending Data to MQTT ($MQTT_SERVER)"
+
+	DOWN=$(cat /tmp/fastlog | cut -d' ' -f5)
+	UP=$(cat /tmp/fastlog | cut -d' ' -f9)
+
+	mosquitto_pub -h $MQTT_SERVER -t $MQTT_DOWN -m $DOWN
+	mosquitto_pub -h $MQTT_SERVER -t $MQTT_UP -m $UP
+
+	echo "Waiting for $SLEEP Seconds to continue..."
+	
+	sleep $SLEEP 
+
+done

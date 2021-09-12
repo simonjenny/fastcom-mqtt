@@ -11,6 +11,14 @@ MQTT_DOWN : Topic for Download Value
 MQTT_UP : Topic for Upload Value
 
 
+Optional:
+
+MQTT_USER: MQTT Username
+
+MQTT_PASS: MQTT Password
+
+
+
 Example:
 
 ```

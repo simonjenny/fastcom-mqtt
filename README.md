@@ -22,5 +22,5 @@ MQTT_PASS: MQTT Password
 Example:
 
 ```
-docker run -e SLEEP='3600' -e MQTT_DOWN='edge/down' -e MQTT_UP='edge/up' -e MQTT_SERVER_='10.10.10.10' simonjenny/fastcom:latest
+docker run -e SLEEP='3600' -e MQTT_DOWN='edge/down' -e MQTT_UP='edge/up' -e MQTT_SERVER_='10.10.10.10' simonjenny/fastcom-mqtt:latest
 ```

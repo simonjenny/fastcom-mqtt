@@ -1,11 +1,6 @@
 name: Docker Image Create and Publish
 
 on:
-  push:
-    branches: [ master ]
-    paths-ignore:
-      - '**/README.md'
-      - '**/docker-image.yml'
   workflow_dispatch:
 
 jobs:
@@ -35,7 +30,7 @@ jobs:
         context: ./
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/fastcom:latest
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/fastcom-mqtt:latest
 
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}

@@ -14,7 +14,7 @@ do
 	DOWN=$(cat /tmp/fastlog | cut -d' ' -f5)
 	UP=$(cat /tmp/fastlog | cut -d' ' -f9)
 
-	if [[ -z "${MQTT_PASS}" ]]; then
+	if [[ "${MQTT_PASS}" ]]; then
 	echo "Sending Data to MQTT ($MQTT_SERVER)"
 		mosquitto_pub -u $MQTT_USER -P $MQTT_PASS -h $MQTT_SERVER -t $MQTT_DOWN -m $DOWN
 		mosquitto_pub -u $MQTT_USER -P $MQTT_PASS -h $MQTT_SERVER -t $MQTT_UP -m $UP

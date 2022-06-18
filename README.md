@@ -1,7 +1,7 @@
 # Docker Container with Fast.com CLI sending data directly to MQTT Broker 
 
 This is the repository for the blog post:
-https://www.simonjenny.dev/docker-container-mit-fast-com-cli-welches-die-resultate-an-einen-mqtt-broker-sendet/ (German)
+https://www.b65.ch/measure-internet-speed-with-fastcom.html
 
 The Docker needs the following ENV Variables:
 

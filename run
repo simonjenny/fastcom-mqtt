@@ -16,12 +16,12 @@ do
 
 	if [[ "${MQTT_PASS}" ]]; then
 	echo "Sending Data to MQTT ($MQTT_SERVER)"
-		mosquitto_pub -u $MQTT_USER -P $MQTT_PASS -h $MQTT_SERVER -t $MQTT_DOWN -m $DOWN
-		mosquitto_pub -u $MQTT_USER -P $MQTT_PASS -h $MQTT_SERVER -t $MQTT_UP -m $UP
+		mosquitto_pub -u "$MQTT_USER" -P "$MQTT_PASS" -h $MQTT_SERVER -t "$MQTT_DOWN" -m "$DOWN"
+		mosquitto_pub -u "$MQTT_USER" -P "$MQTT_PASS" -h $MQTT_SERVER -t "$MQTT_UP" -m "$UP"
 	else
 	echo "Sending Data to MQTT ($MQTT_SERVER) -  No Auth"
-		mosquitto_pub -h $MQTT_SERVER -t $MQTT_DOWN -m $DOWN
-		mosquitto_pub -h $MQTT_SERVER -t $MQTT_UP -m $UP
+		mosquitto_pub -h $MQTT_SERVER -t "$MQTT_DOWN" -m "$DOWN"
+		mosquitto_pub -h $MQTT_SERVER -t "$MQTT_UP" -m "$UP"
 	fi 
 
 	echo "Waiting for $SLEEP Seconds to continue..."
